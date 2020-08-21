@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "208262319693",
+    "firebase_url": "https://compras-91a0e.firebaseio.com",
+    "project_id": "compras-91a0e",
+    "storage_bucket": "compras-91a0e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:208262319693:android:088b9bbe2e1e3184bb5604",
+        "android_client_info": {
+          "package_name": "com.example.compras"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "208262319693-nrpuc3tkhmjffnh432tq306t79q18332.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.compras",
+            "certificate_hash": "e4adf8fdfbccc2c9c1ea7b4dcee6c8ac9ddf434b"
+          }
+        },
+        {
+          "client_id": "208262319693-281m9p6g6hk9eiv86u6gb2778oii6cbt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyjrnGT39xQYUtvnPtBaVSMRON_9usR5M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "208262319693-281m9p6g6hk9eiv86u6gb2778oii6cbt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
