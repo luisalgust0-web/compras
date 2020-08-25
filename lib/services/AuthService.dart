@@ -1,8 +1,20 @@
+import 'package:compras/models/user.dart';
 
-//FirebaseAuth
+class AuthService{
+  
+  static User user;
 
-//getUser
+  //FirebaseAuth
 
-//Login
+  //getUser
 
-//logout
+  //Login
+  void login(String email, String password){
+    AuthService.user = User('1','Nome do usuário','usuario@gmail.com');
+  }
+
+  //logout
+  void logout(){
+    AuthService.user = null;
+  }
+}
