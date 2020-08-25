@@ -65,7 +65,10 @@ class _LoginState extends State<Login> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   FlatButton(
-                    onPressed: (){login(this.controllerUser.text, this.controllerPassword.text, context);},
+                    onPressed: () {
+                      login(this.controllerUser.text,
+                          this.controllerPassword.text, context);
+                    },
                     child: Text("Login"),
                   ),
                   Container(
@@ -88,12 +91,14 @@ class _LoginState extends State<Login> {
     ToDo - Rever o porque não mostrou o ScnackBar
   */
   void login(email, password, contexto) {
-    this._formKey.currentState.validate()
-        ? this.auth.login(email, password)
-        : Scaffold.of(contexto).showSnackBar(
-            SnackBar(
-              content: Text("Erro na validação"),
-            ),
-          );
+    if (this._formKey.currentState.validate()) {
+      this.auth.login(email, password);
+    }
+    // ? this.auth.login(email, password)
+    // : Scaffold.of(contexto).showSnackBar(
+    //     SnackBar(
+    //       content: Text("Erro na validação"),
+    //     ),
+    //   );
   }
 }
