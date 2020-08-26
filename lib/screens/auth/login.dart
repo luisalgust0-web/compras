@@ -91,6 +91,13 @@ class _LoginState extends State<Login> {
     ToDo - Rever o porque não mostrou o ScnackBar
   */
   void login(email, password, contexto) {
+    this._formKey.currentState.validate()
+        ? this.auth.login(email, password)
+        : Scaffold.of(contexto).showSnackBar(
+            SnackBar(
+              content: Text("Erro na validação"),
+            ),
+          );
     if (this._formKey.currentState.validate()) {
       this.auth.login(email, password);
     }
