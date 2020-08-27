@@ -11,6 +11,7 @@ class AuthService {
   void creatUser(String email, String password) async {
     final userLocal = (await auth.createUserWithEmailAndPassword(
         email: email, password: password));
+    var f = userLocal.user;
   }
 
   //getUser
