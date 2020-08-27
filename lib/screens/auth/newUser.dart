@@ -26,7 +26,12 @@ class _NewUserState extends State<NewUser> {
         ),
       ),
       body: Container(
-        decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/images/carrinho.jpg"), fit: BoxFit.cover, colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.1), BlendMode.dstATop))),
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("assets/images/carrinho.jpg"),
+                fit: BoxFit.cover,
+                colorFilter: new ColorFilter.mode(
+                    Colors.black.withOpacity(0.1), BlendMode.dstATop))),
         child: Form(
           key: _formKey,
           child: Container(
@@ -53,6 +58,7 @@ class _NewUserState extends State<NewUser> {
                     if (value == "") return "A senha é obrigatória";
                     return null;
                   },
+                  obscureText: true,
                   controller: this.controllerPassword,
                   decoration: InputDecoration(
                     icon: Icon(Icons.lock),
@@ -69,8 +75,8 @@ class _NewUserState extends State<NewUser> {
                     FlatButton(
                       color: Colors.brown.withOpacity(0.3),
                       onPressed: () {
-                        login(this.controllerUser.text,
-                            this.controllerPassword.text, context);
+                        auth.creatUser(
+                            controllerUser.text, controllerPassword.text);
                       },
                       child: Text("Salvar"),
                     ),
@@ -79,7 +85,10 @@ class _NewUserState extends State<NewUser> {
                     ),
                     FlatButton(
                       color: Colors.brown.withOpacity(0.3),
-                      onPressed: () {},
+                      onPressed: () {
+                        controllerPassword.clear();
+                        controllerUser.clear();
+                      },
                       child: Text("Limpar"),
                     ),
                   ],
