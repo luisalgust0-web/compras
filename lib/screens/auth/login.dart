@@ -59,6 +59,7 @@ class _LoginState extends State<Login> {
                     if (value == "") return "A senha é obrigatória";
                     return null;
                   },
+                  obscureText: true,
                   controller: this.controllerPassword,
                   decoration: InputDecoration(
                     icon: Icon(Icons.lock),
@@ -75,8 +76,8 @@ class _LoginState extends State<Login> {
                     FlatButton(
                       color: Colors.brown.withOpacity(0.2),
                       onPressed: () {
-                        login(this.controllerUser.text,
-                            this.controllerPassword.text, context);
+                        auth.login(this.controllerUser.text,
+                            this.controllerPassword.text);
                       },
                       child: Text("Login"),
                     ),
