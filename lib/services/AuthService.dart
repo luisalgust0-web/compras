@@ -10,9 +10,7 @@ class AuthService {
   //creatUser
   void creatUser(String email, String password) async {
     final userLocal = (await auth.createUserWithEmailAndPassword(
-      email: email,
-      password: password,
-    ));
+        email: email, password: password));
   }
 
   //getUser
