@@ -1,13 +1,15 @@
+import 'package:compras/services/ColecoesService.dart';
 import 'package:flutter/material.dart';
 
-class AddColecao extends StatefulWidget {
+class Colecao extends StatefulWidget {
   @override
-  _AddColecaoState createState() => _AddColecaoState();
+  _ColecaoState createState() => _ColecaoState();
 }
 
+var colecao = ColecaoService();
 TextEditingController nome = TextEditingController();
 
-class _AddColecaoState extends State<AddColecao> {
+class _ColecaoState extends State<Colecao> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +19,9 @@ class _AddColecaoState extends State<AddColecao> {
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: () {},
+        onPressed: () {
+          colecao.addItem();
+        },
       ),
       body: Container(
         child: Container(
