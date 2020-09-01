@@ -92,6 +92,12 @@
       "languageVersion": "2.0"
     },
     {
+      "name": "firebase_database",
+      "rootUri": "file:///home/luisalgusto/.pub-cache/hosted/pub.dartlang.org/firebase_database-3.1.6",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
       "name": "flutter",
       "rootUri": "file:///home/luisalgusto/Development/flutter/packages/flutter",
       "packageUri": "lib/",
@@ -224,7 +230,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2020-08-27T02:04:32.102680Z",
+  "generated": "2020-08-28T02:34:07.899685Z",
   "generator": "pub",
   "generatorVersion": "2.9.0-14.0.dev.flutter-2b917f5b6a"
 }
