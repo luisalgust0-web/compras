@@ -1,4 +1,5 @@
 import 'package:compras/services/ColecoesService.dart';
+import 'package:compras/services/AuthService.dart';
 import 'package:flutter/material.dart';
 
 class Colecao extends StatefulWidget {
@@ -33,7 +34,12 @@ class _ColecaoState extends State<Colecao> {
                 decoration: InputDecoration(
                   hintText: 'nome',
                 ),
-              )
+              ),
+              FlatButton(
+                  onPressed: () {
+                    AuthService().logout();
+                  },
+                  child: Text('logout'))
             ],
           ),
         ),

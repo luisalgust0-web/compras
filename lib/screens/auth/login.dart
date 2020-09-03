@@ -28,11 +28,13 @@ class _LoginState extends State<Login> {
       ),
       body: Container(
         decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("assets/images/carrinho.jpg"),
-                fit: BoxFit.cover,
-                colorFilter: new ColorFilter.mode(
-                    Colors.black.withOpacity(0.1), BlendMode.dstATop))),
+          image: DecorationImage(
+            image: AssetImage("assets/images/carrinho.jpg"),
+            fit: BoxFit.cover,
+            colorFilter: new ColorFilter.mode(
+                Colors.black.withOpacity(0.1), BlendMode.dstATop),
+          ),
+        ),
         child: Form(
           key: _formKey,
           child: Container(
@@ -75,9 +77,20 @@ class _LoginState extends State<Login> {
                   children: [
                     FlatButton(
                       color: Colors.brown.withOpacity(0.2),
-                      onPressed: () {
-                        auth.login(this.controllerUser.text,
-                            this.controllerPassword.text);
+                      onPressed: () async {
+                        try {
+                          if (this._formKey.currentState.validate()) {
+                            await auth.login(this.controllerUser.text,
+                                this.controllerPassword.text);
+                          }
+                        } catch (e) {
+                          print("dsfads");
+                          Scaffold.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('erro ao logar'),
+                            ),
+                          );
+                        }
                       },
                       child: Text("Login"),
                     ),
@@ -96,16 +109,18 @@ class _LoginState extends State<Login> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
-                      return NewUser();
-                    }));
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) {
+                        return NewUser();
+                      }),
+                    );
                   },
                   child: Container(
                     height: 45,
                     child: Text("Novo Usuário"),
                   ),
-                )
+                ),
               ],
             ),
           ),
