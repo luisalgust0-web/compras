@@ -4,6 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class Login extends StatefulWidget {
+
+  final Function toggleNewUser;
+
+  Login({this.toggleNewUser});
+
   @override
   _LoginState createState() => _LoginState();
 }
@@ -24,7 +29,9 @@ class _LoginState extends State<Login> {
           backgroundColor: Colors.brown[600],
           title: Text(
             "Login",
-          ),
+          ),actions: [
+            FlatButton.icon(onPressed: (){this.widget.toggleNewUser();}, icon: Icon(Icons.people), label: Text("Novo Usuário"))
+          ],
         ),
         body: Container(
           decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/images/carrinho.jpg"), fit: BoxFit.cover, colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.1), BlendMode.dstATop))),
@@ -85,18 +92,7 @@ class _LoginState extends State<Login> {
                       ),
                     ],
                   ),
-                  Container(height: 50,),
-                  GestureDetector(
-                    onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context){
-                            return NewUser();
-                        }));
-                    },
-                    child: Container(
-                      height: 45,
-                      child: Text("Novo Usuário"),
-                    ),
-                  )
+                  Container(height: 50,)
                 ],
               ),
             ),
