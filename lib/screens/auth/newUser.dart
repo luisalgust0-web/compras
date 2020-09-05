@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class NewUser extends StatefulWidget {
+  final Function toggleNewUser;
+
+  NewUser({this.toggleNewUser});
+
   @override
   _NewUserState createState() => _NewUserState();
 }
@@ -23,7 +27,9 @@ class _NewUserState extends State<NewUser> {
         backgroundColor: Colors.brown[600],
         title: Text(
           "Login",
-        ),
+        ),actions: [
+            FlatButton.icon(onPressed: (){this.widget.toggleNewUser();}, icon: Icon(Icons.person), label: Text("Logout"))
+          ],
       ),
       body: Container(
         decoration: BoxDecoration(
