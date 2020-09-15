@@ -84,7 +84,7 @@ class _LoginState extends State<Login> {
                                 this.controllerPassword.text);
                           }
                         } catch (e) {
-                          print("dsfads");
+                          print("erro");
                           Scaffold.of(context).showSnackBar(
                             SnackBar(
                               content: Text('erro ao logar'),
@@ -99,7 +99,10 @@ class _LoginState extends State<Login> {
                     ),
                     FlatButton(
                       color: Colors.brown.withOpacity(0.2),
-                      onPressed: () {},
+                      onPressed: () {
+                        controllerPassword.clear();
+                        controllerUser.clear();
+                      },
                       child: Text("Limpar"),
                     ),
                   ],
