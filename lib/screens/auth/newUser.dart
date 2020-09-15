@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class NewUser extends StatefulWidget {
+  final Function toggleNewUser;
+
+  NewUser({this.toggleNewUser});
+
   @override
   _NewUserState createState() => _NewUserState();
 }
@@ -24,76 +28,82 @@ class _NewUserState extends State<NewUser> {
         title: Text(
           "Login",
         ),
+        actions: [
+          FlatButton.icon(
+              onPressed: () {
+                this.widget.toggleNewUser();
+              },
+              icon: Icon(Icons.person),
+              label: Text("Logout"))
+        ],
       ),
-      body: Container(
-        decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("assets/images/carrinho.jpg"),
-                fit: BoxFit.cover,
-                colorFilter: new ColorFilter.mode(
-                    Colors.black.withOpacity(0.1), BlendMode.dstATop))),
-        child: Form(
-          key: _formKey,
-          child: Container(
-            padding: EdgeInsets.all(20),
-            child: Column(
-              children: [
-                TextFormField(
-                  validator: (value) {
-                    if (value == "") return "O email é obrigatório";
-                    return null;
-                  },
-                  controller: this.controllerUser,
-                  decoration: InputDecoration(
-                    icon: Icon(Icons.people),
-                    hintText: "Usuário",
+      body: SingleChildScrollView(
+        child: Container(
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/images/carrinho.jpg"),
+                  fit: BoxFit.cover,
+                  colorFilter: new ColorFilter.mode(
+                      Colors.black.withOpacity(0.1), BlendMode.dstATop))),
+          child: Form(
+            key: _formKey,
+            child: Container(
+              padding: EdgeInsets.all(20),
+              child: Column(
+                children: [
+                  TextFormField(
+                    validator: (value) {
+                      if (value == "") return "O email é obrigatório";
+                      return null;
+                    },
+                    controller: this.controllerUser,
+                    decoration: InputDecoration(
+                      icon: Icon(Icons.people),
+                      hintText: "Usuário",
+                    ),
+                    keyboardType: TextInputType.text,
                   ),
-                  keyboardType: TextInputType.text,
-                ),
-                Container(
-                  height: 10,
-                ),
-                TextFormField(
-                  validator: (value) {
-                    if (value == "") return "A senha é obrigatória";
-                    return null;
-                  },
-                  obscureText: true,
-                  controller: this.controllerPassword,
-                  decoration: InputDecoration(
-                    icon: Icon(Icons.lock),
-                    hintText: "Senha",
+                  Container(
+                    height: 10,
                   ),
-                  keyboardType: TextInputType.visiblePassword,
-                ),
-                Container(
-                  height: 40,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    FlatButton(
-                      color: Colors.brown.withOpacity(0.3),
-                      onPressed: () {
-                        auth.creatUser(
-                            controllerUser.text, controllerPassword.text);
-                      },
-                      child: Text("Salvar"),
+                  TextFormField(
+                    validator: (value) {
+                      if (value == "") return "A senha é obrigatória";
+                      return null;
+                    },
+                    controller: this.controllerPassword,
+                    decoration: InputDecoration(
+                      icon: Icon(Icons.lock),
+                      hintText: "Senha",
                     ),
-                    Container(
-                      width: 20,
-                    ),
-                    FlatButton(
-                      color: Colors.brown.withOpacity(0.3),
-                      onPressed: () {
-                        controllerPassword.clear();
-                        controllerUser.clear();
-                      },
-                      child: Text("Limpar"),
-                    ),
-                  ],
-                ),
-              ],
+                    keyboardType: TextInputType.visiblePassword,
+                  ),
+                  Container(
+                    height: 40,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      FlatButton(
+                        color: Colors.brown.withOpacity(0.3),
+                        onPressed: () {
+                          login(this.controllerUser.text,
+                              this.controllerPassword.text, context);
+                        },
+                        child: Text("Salvar"),
+                      ),
+                      Container(
+                        width: 20,
+                      ),
+                      FlatButton(
+                        color: Colors.brown.withOpacity(0.3),
+                        onPressed: () {},
+                        child: Text("Limpar"),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),

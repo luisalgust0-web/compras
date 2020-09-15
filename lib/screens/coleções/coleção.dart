@@ -7,7 +7,7 @@ class Colecao extends StatefulWidget {
   _ColecaoState createState() => _ColecaoState();
 }
 
-var colecao = ColecaoService();
+var colecao = ColecaoService(AuthService.instanceUser.key);
 TextEditingController nome = TextEditingController();
 
 class _ColecaoState extends State<Colecao> {

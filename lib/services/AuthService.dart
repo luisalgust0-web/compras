@@ -6,6 +6,8 @@ class AuthService {
   //FirebaseAuth
   FirebaseAuth auth = FirebaseAuth.instance;
 
+  static UserApp instanceUser;
+
   Stream<UserApp> get user {
     return this.auth.onAuthStateChanged.map(translateFromFirebase);
   }
@@ -25,7 +27,11 @@ class AuthService {
 
   //Login
   Future<void> login(String email, String password) async {
-    await auth.signInWithEmailAndPassword(email: email, password: password);
+    var result =
+        await auth.signInWithEmailAndPassword(email: email, password: password);
+    if (result.user != null) {
+      instanceUser = translateFromFirebase(result.user);
+    }
 
     //AuthService.user = User('1','Nome do usuário','usuario@gmail.com');
   }
