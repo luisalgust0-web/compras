@@ -22,7 +22,6 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
     return Scaffold(
       backgroundColor: Colors.brown[50],
       appBar: AppBar(
@@ -42,25 +41,13 @@ class _LoginState extends State<Login> {
       body: SingleChildScrollView(
         child: Container(
           decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("assets/images/carrinho.jpg"),
-                  fit: BoxFit.cover,
-                  colorFilter: new ColorFilter.mode(
-                      Colors.black.withOpacity(0.1), BlendMode.dstATop))),
-=======
-      return Scaffold(
-        backgroundColor: Colors.brown[50],
-        appBar: AppBar(
-          backgroundColor: Colors.brown[600],
-          title: Text(
-            "Login",
-          ),actions: [
-            FlatButton.icon(onPressed: (){this.widget.toggleNewUser();}, icon: Icon(Icons.people), label: Text("Novo Usuário"))
-          ],
-        ),
-        body: Container(
-          decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/images/carrinho.jpg"), fit: BoxFit.cover, colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.1), BlendMode.dstATop))),
->>>>>>> 3b42287a09c537f1f2bd8be20f9ac8c50b8f7b30
+            image: DecorationImage(
+              image: AssetImage("assets/images/carrinho.jpg"),
+              fit: BoxFit.cover,
+              colorFilter: new ColorFilter.mode(
+                  Colors.black.withOpacity(0.1), BlendMode.dstATop),
+            ),
+          ),
           child: Form(
             key: _formKey,
             child: Container(
@@ -126,7 +113,8 @@ class _LoginState extends State<Login> {
             ),
           ),
         ),
-      );
+      ),
+    );
   }
 
   /*

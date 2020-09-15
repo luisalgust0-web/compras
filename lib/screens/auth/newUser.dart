@@ -68,7 +68,9 @@ class _NewUserState extends State<NewUser> {
                   ),
                   TextFormField(
                     validator: (value) {
-                      if (value == "") return "A senha é obrigatória";
+                      if (value == "")
+                        return 'senha obrigatoria';
+                      else if (value != 6) return 'minimo 6 caracteres';
                       return null;
                     },
                     controller: this.controllerPassword,

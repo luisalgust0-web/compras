@@ -12,15 +12,9 @@ class Wrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     var user = Provider.of<UserApp>(context);
 
-<<<<<<< HEAD
     if (user == null) {
       return Auth();
     }
-=======
-      if(user == null){
-        return Auth();
-      }
->>>>>>> 3b42287a09c537f1f2bd8be20f9ac8c50b8f7b30
 
     return Colecao();
   }
