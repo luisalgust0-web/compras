@@ -89,7 +89,7 @@ class _NewUserState extends State<NewUser> {
                       FlatButton(
                         color: Colors.brown.withOpacity(0.3),
                         onPressed: () {
-                          login(this.controllerUser.text,
+                          createuser(this.controllerUser.text,
                               this.controllerPassword.text, context);
                         },
                         child: Text("Salvar"),
@@ -116,9 +116,9 @@ class _NewUserState extends State<NewUser> {
   /*
     ToDo - Rever o porque não mostrou o ScnackBar
   */
-  void login(email, password, contexto) {
+  void createuser(email, password, contexto) {
     this._formKey.currentState.validate()
-        ? this.auth.login(email, password)
+        ? this.auth.creatUser(email, password)
         : Scaffold.of(contexto).showSnackBar(
             SnackBar(
               content: Text("Erro na validação"),

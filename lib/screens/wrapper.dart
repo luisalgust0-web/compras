@@ -11,7 +11,7 @@ import 'auth/auth.dart';
 class Wrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var user = Provider.of<UserApp>(context);
+    final user = Provider.of<UserApp>(context);
 
     if (user == null) {
       return Auth();
