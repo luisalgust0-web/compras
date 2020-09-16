@@ -1,27 +1,42 @@
 import 'package:compras/models/userApp.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthService {
-  static UserApp user;
-
   //FirebaseAuth
   FirebaseAuth auth = FirebaseAuth.instance;
 
+  static UserApp instanceUser;
+
+  Stream<UserApp> get user {
+    return this.auth.onAuthStateChanged.map(translateFromFirebase);
+  }
+
+  UserApp translateFromFirebase(FirebaseUser fireUser) {
+    if (fireUser == null) {
+      instanceUser = null;
+      return null;
+    }
+
+    instanceUser = UserApp(fireUser.uid, "Teste", fireUser.email);
+    return instanceUser;
+  }
+
   //creatUser
   void creatUser(String email, String password) async {
-    final userLocal = (await auth.createUserWithEmailAndPassword(
-      email: email,
-      password: password,
-    ));
+    await auth.createUserWithEmailAndPassword(email: email, password: password);
   }
 
   //getUser
 
   //Login
-  void login(String email, String password) async {
-    final userLocal = (await auth.signInWithEmailAndPassword(
-        email: email, password: password));
-    var t = userLocal.user;
+  Future<void> login(String email, String password) async {
+    var result =
+        await auth.signInWithEmailAndPassword(email: email, password: password);
+    if (result.user != null) {
+      instanceUser = translateFromFirebase(result.user);
+    }
+
     //AuthService.user = User('1','Nome do usuário','usuario@gmail.com');
   }
 
