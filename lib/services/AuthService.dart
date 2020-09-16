@@ -13,9 +13,13 @@ class AuthService {
   }
 
   UserApp translateFromFirebase(FirebaseUser fireUser) {
-    if (fireUser == null) return null;
+    if (fireUser == null) {
+      instanceUser = null;
+      return null;
+    }
 
-    return UserApp(fireUser.uid, "Teste", fireUser.email);
+    instanceUser = UserApp(fireUser.uid, "Teste", fireUser.email);
+    return instanceUser;
   }
 
   //creatUser

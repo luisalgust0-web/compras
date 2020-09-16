@@ -1,3 +1,4 @@
+import 'package:compras/screens/auth/login.dart';
 import 'package:compras/services/ColecoesService.dart';
 import 'package:compras/services/AuthService.dart';
 import 'package:flutter/material.dart';
@@ -38,6 +39,8 @@ class _ColecaoState extends State<Colecao> {
               FlatButton(
                   onPressed: () {
                     AuthService().logout();
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Login()));
                   },
                   child: Text('logout'))
             ],

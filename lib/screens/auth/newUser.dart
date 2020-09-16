@@ -70,7 +70,7 @@ class _NewUserState extends State<NewUser> {
                     validator: (value) {
                       if (value == "")
                         return 'senha obrigatoria';
-                      else if (value != 6) return 'minimo 6 caracteres';
+                      else if (value.length != 6) return 'minimo 6 caracteres';
                       return null;
                     },
                     controller: this.controllerPassword,

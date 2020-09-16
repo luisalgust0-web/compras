@@ -1,5 +1,8 @@
+import 'package:compras/models/userApp.dart';
 import 'package:compras/screens/auth/newUser.dart';
+import 'package:compras/screens/cole%C3%A7%C3%B5es/cole%C3%A7%C3%A3o.dart';
 import 'package:compras/services/AuthService.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
